@@ -102,6 +102,37 @@
 		WHERE 
 			RES_IDX = #{RES_IDX}
 	</update>
+	
+	<insert id="insertOneReserve" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+		<selectKey keyProperty="RES_IDX" resultType="string" order="BEFORE">
+			SELECT RES_IDX_SEQ.NEXTVAL FROM DUAL
+		</selectKey>	
+
+		<![CDATA[
+			INSERT INTO BOARD
+			(
+				RES_IDX,
+				RES_CLI_ID,
+				RES_HOST_ID,
+				RES_BOARD_NO,
+				RES_DATE_START,
+				RES_DATE_END,
+				RES_CARE_NO,
+				RES_REQ_DETAIL
+			)
+			VALUES
+			(
+				#{RES_IDX}, 
+				#{RES_CLI_ID},
+				#{MEM_ID},
+				#{BOARD_NO},
+				#{RES_DATE_START},
+				#{RES_DATE_END},
+				#{RES_CARE_NO},
+				#{RES_REQ_DETAIL}
+			)
+		]]>
+</insert>
 
 
 </mapper>
