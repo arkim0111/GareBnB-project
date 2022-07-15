@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "report">
+
+<!-- 신고내역보기 일반 -->
+<select id="selectOneReport" parameterType="hashmap" resultType="hashmap">
+<![CDATA[
+	SELECT
+		REPORT_IDX,
+		REPORT_TITLE,
+		REPORT_ID,
+		REPORT_CONTENT,
+		REPORT_DATE,
+		REPORT_STATE,
+		REPORT_COMMENT,
+		REPORT_MEM_IDX,
+		REPORT_RES_NO
+	FROM 
+		REPORT;
+	WHERE 
+		REPORT_ID = #{MEM_ID}	 
+]]>
+</select>
+
+
+
+<!-- 신고내용 리스트보기 -->
+	<select id="selectReportList" parameterType="hashmap" resultType="hashmap">
+		<![CDATA[
+			SELECT
+				REPORT_IDX,
+				REPORT_TITLE,
+				REPORT_CONTENT,
+				REPORT_DATE,
+				REPORT_STATE,
+				REPORT_COMMENT,
+			FROM
+				REPORT
+			WHERE
+				REPORT_ID = #{MEM_ID}		
+		]]>
+	</select>
+
+
+
+
+
+<!-- 신고내용 리스트보기 관리자 -->
+<select id ="selectAdminReportList" parameterType ="hashmap" resultType="hashmap">
+		SELECT
+			REPORT_IDX, REPORT_TITLE, REPORT_ID, REPORT_DATE
+		FROM
+			REPORT
+		ORDER BY REPORT_DATE DESC		
+</select>
+
+
+
+<!-- 신고 내용 상세보기 관리자 -->   
+<select id ="selectAdminOneReport" parameterType ="hashmap" resultType = "hashmap">
+		SELECT
+			REPORT_IDX,
+			REPORT_TITLE,
+			REPORT_ID,
+			REPORT_DATE,
+			REPORT_CONTENT,
+			REPORT_STATE,
+			REPORT_COMMENT,
+			REPORT_MEM_IDX,
+			REPORT_RES_NO
+		FROM
+			REPORT
+		WHERE
+			REPORT_IDX = #{REPORT_IDX}
+</select>
+
+
+<!-- 신고 답변 작성 관리자 --> 
+<update id ="updateReportComment" parameterType ="hashmap">
+	<![CDATA[
+		UPDATE 
+			REPORT
+		SET
+			REPORT_STATE = '1',
+			REPORT_COMMENT = #{REPORT_COMMENT}
+		WHERE 
+			REPORT_IDX = #{REPORT_IDX}
+	]]>
+</update>
+
+</mapper>
