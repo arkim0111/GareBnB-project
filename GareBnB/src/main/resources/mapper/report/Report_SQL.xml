@@ -66,13 +66,6 @@
 		]]>
 </insert>
 
-<!-- 	<selectKey keyProperty="REPORT_MEM_IDX,RES_NO" resultType="string" order="BEFORE">
-	신고할 HOST의 ID와 RES_NO를 찾는거니깐 게시글 번호 
-			SELECT A.RES_HOST_ID, A.RES_IDX
-			FROM RESERVATION R INNER JOIN BOARD B
-			ON 	R.RES_BOARD_NO=B.BOARD_NO
-       	     		WHERE R.RES_CLI_ID= #{MEM_ID}
-	</selectKey> -->
 
 <!-- 신고내용 리스트보기 -->
 	<select id="selectReportList" parameterType="hashmap" resultType="hashmap">
