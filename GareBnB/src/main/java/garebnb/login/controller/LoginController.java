@@ -37,6 +37,22 @@ public class LoginController {
 
     }
 	
+	@ResponseBody
+    @RequestMapping(value={"/login/login"}) // 로그인 
+    public Map<String, Object> selectId(CommandMap commandMap) throws Exception{
+        String inputPassword = (String)commandMap.getMap().get("MEM_PW");
+        if(loginService.selectId(commandMap.getMap()) == null) {
+        	return null;
+        } else {
+			String realPassword = (String)loginService.selectId(commandMap.getMap()).get("MEM_PW");
+	        if(inputPassword.equals(realPassword)) {
+				return loginService.selectId(commandMap.getMap());
+	        } 
+	        else 
+	        	return null;
+        }
+    }
+	
 
 	
 
