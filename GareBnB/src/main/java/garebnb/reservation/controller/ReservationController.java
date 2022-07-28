@@ -50,12 +50,15 @@ public class ReservationController {
         reservationService.updateResReject(commandMap.getMap());
     }
 	
+	//예약 요청 보내기 
 	@ResponseBody
     @RequestMapping(value= "/mypage/resRequest") 
-    public void resRequest(CommandMap commandMap) throws Exception {
+    public String resRequest(CommandMap commandMap) throws Exception {
         reservationService.insertOneReserve(commandMap.getMap());
+        return "";
     }
 	
+	//예약 요청 상세보기
 	@ResponseBody
 	@RequestMapping(value="/mypage/resRequestDetail")
 	public Map<String, Object> resRequestDetail(CommandMap commandMap) throws Exception{

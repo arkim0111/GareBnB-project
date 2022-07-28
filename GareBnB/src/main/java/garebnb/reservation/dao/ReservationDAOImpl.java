@@ -60,7 +60,7 @@ public class ReservationDAOImpl implements ReservationDAO{
 	    @Override
 	    public Map<String, Object> selectReserveDetail(Map<String, Object> map) throws Exception {
 	        // TODO Auto-generated method stub
-	        return (Map<String , Object>) sqlSession.selectList("reservation.selectReserveDetail", map);
+	        return (Map<String , Object>) sqlSession.selectOne("reservation.selectReserveDetail", map);
 	    }
 
 }

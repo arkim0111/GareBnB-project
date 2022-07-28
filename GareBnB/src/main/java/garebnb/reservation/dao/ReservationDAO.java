@@ -3,6 +3,8 @@ package garebnb.reservation.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 public interface ReservationDAO {
 	
 	public List<Map<String, Object>> selectMemReserveList (Map<String,Object> map) throws Exception; //클라이언트가 보는 예약내역조회
