@@ -3,6 +3,8 @@ package garebnb.reservation.dao;
 import java.util.List;
 import java.util.Map;
 
+import org.springframework.stereotype.Repository;
+
 public interface ReservationDAO {
 	
 	public void updateResCancel(Map<String, Object> map);	//클라이언트 예약취소

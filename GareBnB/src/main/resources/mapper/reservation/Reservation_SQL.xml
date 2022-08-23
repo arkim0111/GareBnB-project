@@ -207,6 +207,7 @@
 
 	<!-- 예약 거절 -->
 	<update id="updateResReject" parameterType="hashmap">
+	<![CDATA[
 		UPDATE 
 			RESERVATION
 		SET
@@ -214,6 +215,7 @@
 			RES_LEVEL = 4
 		WHERE 
 			RES_IDX = #{RES_IDX}
+	]]>
 	</update>
 	
 	<!--클라이언트 예약하기  -->
