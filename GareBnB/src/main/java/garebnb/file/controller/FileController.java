@@ -38,7 +38,7 @@ public class FileController {
 			String File_Num = (String)map.get("FILE_NUM");
 			String File_Name = (String)map.get("FILE_ORGNAME");
 			
-			byte fileByte[] = FileUtils.readFileToByteArray(new File("/Users/jinkim/Documents/upload/"+storedFileName));
+			byte fileByte[] = FileUtils.readFileToByteArray(new File("./src/image/"+storedFileName));
 			returnMap.put("FILE_LEVEL",File_Level);
 			returnMap.put("URL", fileByte);
 			returnMap.put("FILE_NUM",File_Num);
@@ -61,7 +61,7 @@ public class FileController {
 			list.add(info);
 		} else {
 		String storedFileName = (String)file.get("FILE_STDNAME");
-		byte fileByte[] = FileUtils.readFileToByteArray(new File("/Users/jinkim/Documents/upload/"+storedFileName));
+		byte fileByte[] = FileUtils.readFileToByteArray(new File("./src/image"+storedFileName));
 		info.put("FILE_BOARD_IDX", file.get("FILE_BOARD_IDX"));
 		info.put("URL",fileByte);
 		list.add(info);

@@ -18,7 +18,7 @@ import garebnb.common.util.CommonUtils;
 @Component("fileUtils")
 public class fileUtils {
 	
-private static final String filePath = "/Users/a_ram/Desktop/project/image/";
+private static final String filePath = "./src/image/";
 	
 	public List<Map<String,Object>> parseInsertFileInfo(Map<String,Object> map, HttpServletRequest request) throws Exception{
 		MultipartHttpServletRequest multipartHttpServletRequest = (MultipartHttpServletRequest)request;
