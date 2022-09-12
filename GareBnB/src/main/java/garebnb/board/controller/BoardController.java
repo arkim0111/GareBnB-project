@@ -14,7 +14,6 @@ import garebnb.common.common.CommandMap;
 
 @Controller
 public class BoardController {
-	Logger log = Logger.getLogger(this.getClass());
 
 	@Resource(name = "boardService")
 	private BoardService boardService;
