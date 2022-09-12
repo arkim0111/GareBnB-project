@@ -28,6 +28,3 @@ hs_err_pid*
 .settings/
 target/
 users/
-context-datasource.xml
-
-context-datasource.xml
